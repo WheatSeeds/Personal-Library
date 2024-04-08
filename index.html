@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <title>Personal Library</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Doppio+One&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,500;1,500&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<header></header>
+<header>
+    <img src="Img/open-book.png" id="logo" style="filter: invert(1); height: 7vh">
+    <span style="font-size: 1.5rem; color: white; font-family: 'Roboto Medium', sans-serif">PERSONAL LIBRARY</span>
+</header>
 <main>
     <div class="library-grid">
         <dialog>
-            <button>Cancel</button>
-            <button>Done</button>
+            <form>
+                <input type="text" placeholder="Title">
+                <input type="text" placeholder="Author">
+                <input type="number" placeholder="Pages">
+                <button id="cancel-button">Cancel</button>
+                <button type="submit" id="confirm-button">Confirm</button>
+            </form>
         </dialog>
-        <button class="create-card"></button>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
+        <button class="create-card"><img src="Img/plus.png" style="height: 7vh"></button>
     </div>
 </main>
 <footer></footer>

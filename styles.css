@@ -9,8 +9,12 @@ body{
 header{
     height: 10vh;
     background-color: #44576b;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    gap: 1%;
 }
-.create-card, .book{
+.create-card, .card-book{
     height: calc(230px*1.4143);
     width: 230px;
     border: none;
@@ -19,8 +23,10 @@ header{
 .create-card{
     background-color: var(--color-inactive);
 }
-.book{
+.card-book{
     background-color: var(--color-primary-color-book);
+    position: relative;
+    z-index: 10;
 }
 .library-grid{
     display: grid;
@@ -30,3 +36,25 @@ header{
     padding: 10vh 15%;
     justify-content: center;
 }
+form{
+    display: flex;
+    flex-direction: column;
+}
+.book{
+    position: relative;
+}
+.read-button{
+    width: 30px;
+    height: 40px;
+    border: none;
+    background-color: red;
+    clip-path: polygon(50% 70%, 100% 100%, 100% 0, 0 0, 0 100%);
+    transition-duration: 0.5s;
+    position: absolute;
+    bottom: -30px;
+    left: 25px;
+}
+.read-button:hover{
+    bottom: -40px;
+}
+
