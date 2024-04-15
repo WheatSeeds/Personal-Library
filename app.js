@@ -11,30 +11,16 @@ create.onclick = () =>{
     dialog.showModal();
 }
 
-confirmButton.addEventListener('click', () => {
-    dialog.close();
-
-    const book = document.createElement('div');
-    const cardBook = document.createElement('div');
-    const readButton = document.createElement('button');
-
-    book.classList.add('book');
-    libraryGrid.append(book);
-    cardBook.classList.add('card-book');
-    book.appendChild(cardBook)
-    readButton.classList.add('read-button');
-    book.appendChild(readButton)
-    event.preventDefault();
-
-
-});
-const myLibrary = [];
-
 form.addEventListener("submit", function(e) {
     e.preventDefault();
-    const data = new FormData(this);
-    console.log(data)
+    const data = new FormData(form);
+    addBookToLibrary(data.get('title'), data.get('author'), data.get('pages'));
+    dialog.close();
+    createBook();
 })
+
+const myLibrary = [];
+
 
 cancelButton.onclick = () => {
     dialog.close();
@@ -49,4 +35,17 @@ function Book(title, author, pages){
 
 function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages));
+}
+
+function createBook(){
+    const book = document.createElement('div');
+    const cardBook = document.createElement('div');
+    const readButton = document.createElement('button');
+    book.classList.add('book');
+    libraryGrid.append(book);
+    cardBook.classList.add('card-book');
+    book.appendChild(cardBook)
+    readButton.classList.add('read-button');
+    book.appendChild(readButton)
+    event.preventDefault();
 }
