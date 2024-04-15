@@ -15,7 +15,7 @@ header{
     padding-left: 1%;
     gap: 1%;
 }
-.create-card, .card-book{
+.create-card, .card-book, dialog{
     height: calc(230px*1.4143);
     width: 230px;
     border: none;
@@ -25,6 +25,11 @@ header{
     background-color: var(--color-inactive);
 }
 .card-book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
     background-color: var(--color-primary-color-book);
     position: relative;
     z-index: 10;
@@ -58,4 +63,6 @@ form{
 .read-button:hover{
     bottom: -40px;
 }
-
+dialog{
+    background-color: var(--color-primary-color-book);
+}

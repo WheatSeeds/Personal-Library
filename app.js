@@ -2,50 +2,56 @@ const create = document.querySelector('.create-card');
 const libraryGrid = document.querySelector('.library-grid');
 
 const dialog = document.querySelector('dialog');
-const confirmButton = document.getElementById('confirm-button');
 const cancelButton = document.getElementById('cancel-button');
 
 const form = document.querySelector("#form-book")
+
+const myLibrary = [];
 
 create.onclick = () =>{
     dialog.showModal();
 }
 
 form.addEventListener("submit", function(e) {
-    e.preventDefault();
     const data = new FormData(form);
-    addBookToLibrary(data.get('title'), data.get('author'), data.get('pages'));
+    const Book = Object.fromEntries(data)
+
+    createBook(Book);
+    myLibrary.push(Book);
+
     dialog.close();
-    createBook();
+    e.preventDefault();
 })
-
-const myLibrary = [];
-
 
 cancelButton.onclick = () => {
     dialog.close();
     event.preventDefault();
 }
 
-function Book(title, author, pages){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-}
-
-function addBookToLibrary(title, author, pages) {
-    myLibrary.push(new Book(title, author, pages));
-}
-
-function createBook(){
+function createBook(newBook){
     const book = document.createElement('div');
     const cardBook = document.createElement('div');
     const readButton = document.createElement('button');
+
+    const bookTitle = document.createElement('span');
+    const bookAuthor = document.createElement('span');
+    const bookPages = document.createElement('span');
+
     book.classList.add('book');
     libraryGrid.append(book);
     cardBook.classList.add('card-book');
     book.appendChild(cardBook)
     readButton.classList.add('read-button');
     book.appendChild(readButton)
+
+    bookTitle.innerHTML = newBook.title;
+    bookAuthor.innerHTML = newBook.author;
+    bookPages.innerHTML = newBook.pages;
+
+    cardBook.appendChild(bookTitle);
+    cardBook.appendChild(bookAuthor);
+    cardBook.appendChild(bookPages);
+
     event.preventDefault();
 }
+
