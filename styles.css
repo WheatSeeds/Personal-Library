@@ -66,3 +66,17 @@ form{
 dialog{
     background-color: var(--color-primary-color-book);
 }
+.delete-button{
+    border: none;
+    height: 40px;
+    width: auto;
+    position: absolute;
+    z-index: 10;
+    right: 15px;
+    top: 5px;
+    background-color: rgb(0,0,0,0);
+    background-image: url('Img/close.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

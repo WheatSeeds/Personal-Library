@@ -31,18 +31,15 @@ cancelButton.onclick = () => {
 function createBook(newBook){
     const book = document.createElement('div');
     const cardBook = document.createElement('div');
-    const readButton = document.createElement('button');
 
     const bookTitle = document.createElement('span');
     const bookAuthor = document.createElement('span');
     const bookPages = document.createElement('span');
 
     book.classList.add('book');
-    libraryGrid.append(book);
     cardBook.classList.add('card-book');
+
     book.appendChild(cardBook)
-    readButton.classList.add('read-button');
-    book.appendChild(readButton)
 
     bookTitle.innerHTML = newBook.title;
     bookAuthor.innerHTML = newBook.author;
@@ -52,6 +49,24 @@ function createBook(newBook){
     cardBook.appendChild(bookAuthor);
     cardBook.appendChild(bookPages);
 
+    read(book);
+    del(book);
+
+    libraryGrid.append(book);
     event.preventDefault();
 }
+function read(book){
+    const readButton = document.createElement('button');
+    readButton.classList.add('read-button');
+    book.appendChild(readButton)
+}
 
+function del(book){
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete-button')
+    book.appendChild(deleteButton)
+    deleteButton.onclick = (e) => {
+        e.target.parentElement.remove();
+        myLibrary.splice(e, 1);
+    }
+}
