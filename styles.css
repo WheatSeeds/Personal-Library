@@ -45,6 +45,9 @@ header{
 form{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
 }
 .book{
     position: relative;
@@ -66,7 +69,7 @@ form{
 dialog{
     background-color: var(--color-primary-color-book);
 }
-.delete-button{
+.delete-button, #cancel-button{
     border: none;
     height: 40px;
     width: auto;

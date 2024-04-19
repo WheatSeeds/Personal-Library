@@ -15,7 +15,7 @@ create.onclick = () =>{
 form.addEventListener("submit", function(e) {
     const data = new FormData(form);
     const Book = Object.fromEntries(data)
-
+    Book.read_status = false;
     createBook(Book);
     myLibrary.push(Book);
 
@@ -41,30 +41,42 @@ function createBook(newBook){
 
     book.appendChild(cardBook)
 
-    bookTitle.innerHTML = newBook.title;
-    bookAuthor.innerHTML = newBook.author;
-    bookPages.innerHTML = newBook.pages;
+    bookTitle.innerHTML = `Title: ${newBook.title}`;
+    bookAuthor.innerHTML = `Author: ${newBook.author}`;
+    bookPages.innerHTML = `Pages: ${newBook.pages}`;
 
     cardBook.appendChild(bookTitle);
     cardBook.appendChild(bookAuthor);
     cardBook.appendChild(bookPages);
 
-    read(book);
+    read(newBook, book);
     del(book);
 
     libraryGrid.append(book);
     event.preventDefault();
 }
-function read(book){
+function read(newBook, book){
     const readButton = document.createElement('button');
     readButton.classList.add('read-button');
     book.appendChild(readButton)
+
+    readButton.onclick = () => {
+        if(newBook.read_status === false){
+            readButton.style.backgroundColor = 'green';
+            newBook.read_status = true;
+        }
+        else{
+            readButton.style.backgroundColor = 'yellow'
+            newBook.read_status = false;
+        }
+    }
 }
 
 function del(book){
     const deleteButton = document.createElement('button')
     deleteButton.classList.add('delete-button')
     book.appendChild(deleteButton)
+
     deleteButton.onclick = (e) => {
         e.target.parentElement.remove();
         myLibrary.splice(e, 1);
