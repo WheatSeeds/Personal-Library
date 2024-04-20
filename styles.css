@@ -6,13 +6,14 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Medium', sans-serif;
 }
 header{
     height: 10vh;
     background-color: #44576b;
     display: flex;
     align-items: center;
-    padding-left: 1%;
+    justify-content: center;
     gap: 1%;
 }
 .create-card, .card-book, dialog{
@@ -27,10 +28,11 @@ header{
 .card-book{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-size: 24px;
     background-color: var(--color-primary-color-book);
+    color: white;
     position: relative;
     z-index: 10;
 }
@@ -45,9 +47,11 @@ header{
 form{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-size: 24px;
+    height: 100%;
+    gap: 15px;
 }
 .book{
     position: relative;
@@ -56,7 +60,7 @@ form{
     width: 30px;
     height: 40px;
     border: none;
-    background-color: red;
+    background-color: #b63535;
     clip-path: polygon(50% 70%, 100% 100%, 100% 0, 0 0, 0 100%);
     transition-duration: 0.5s;
     position: absolute;
@@ -82,4 +86,15 @@ dialog{
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+.delete-button{
+    filter: invert(1);
+}
+input, #confirm-button{
+    height: 36px;
+    border: none;
+}
+.card-book > span{
+    max-width: 70%;
+    word-break: break-all;
 }

@@ -62,11 +62,11 @@ function read(newBook, book){
 
     readButton.onclick = () => {
         if(newBook.read_status === false){
-            readButton.style.backgroundColor = 'green';
+            readButton.style.backgroundColor = '#9BB74F';
             newBook.read_status = true;
         }
         else{
-            readButton.style.backgroundColor = 'yellow'
+            readButton.style.backgroundColor = '#b63535'
             newBook.read_status = false;
         }
     }

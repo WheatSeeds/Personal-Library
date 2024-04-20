@@ -17,9 +17,9 @@
     <div class="library-grid">
         <dialog>
             <form id="form-book">
-                <input type="text" name="title" placeholder="Title">
-                <input type="text" name="author" placeholder="Author">
-                <input type="number" name="pages" placeholder="Pages">
+                <input type="text" name="title" placeholder="Title" maxlength="100" required>
+                <input type="text" name="author" placeholder="Author" maxlength="50" required>
+                <input type="number" name="pages" placeholder="Pages" max="10000" required>
                 <button id="cancel-button"></button>
                 <button type="submit" id="confirm-button">Confirm</button>
             </form>
